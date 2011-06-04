@@ -1,0 +1,6 @@
+ABOUT THE PROJECT:
+The file wlbstr.tcl shows a node roaming from one base station to another seamlessly. Snoop is implemented and graphed for performance evaluation.
+
+HOW TO USE IT:
+ns wlbstr.tcl
+

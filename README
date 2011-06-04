@@ -1,0 +1,8 @@
+ABOUT THE PROJECT:
+The files in this repository are part of the simulations I used for my TCP-Performance evaluation in 802.11 networks research. 
+Please copy them to <ns2 installation directory>/ns-2.35/tcl/ex/snoop before running them.
+
+All the simulations are accompanied by a NAM animation and an xgraph generated chart of the throughput.
+
+HOW TO USE:
+ns <filename.tcl>

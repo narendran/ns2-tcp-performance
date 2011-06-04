@@ -1,0 +1,45 @@
+Base Program - Snoop Implementation in Wired Networks snp-bs1.tcl
+
+It has three wired nodes, a base station and three wireless nodes. The Snoop is implemented in the node W(1) which is the node between the duplex link and the wireless LAN. Thus when an error module is introduced, the packet drop is from the Wired nodes.
+
+And the network structure in snp-bs1.tcl looks like 
+
+	W(2)
+	| (duplex)
+	|
+	W(0)
+	| (lan)
+	--
+	|
+	W(1) (Snoop)
+	|(duplex)
+	|
+	BS(0)
+
+	(wireless)
+node_(0) node_(1) node_(2)
+
+
+snp-bs1.tcl is a working program that implements Snoop in the node between LAN and duplex-link
+
+What I did to snp-bs1 is 
+Backup : snp-bs1.tcl --> wlsn1.tcl
+
+In wlsn1.tcl :
+1. Introduced error into the inbound and outbound interfaces of the three wireless nodes.
+Inference - Program working. There is a clear difference in the throughput graph due to the Bit-Error rate increase in the wireless network.
+Backup : wlsn1.tcl --> wlsn2.tcl
+
+In wlsn2.tcl
+2. Employ Snoop in the Link Layer of BS
+  Steps :
+	i. Converted the LAN to a normal duplex link.
+	ii. Tested the simulation - working
+	iii. Tried applying Snoop to BS and all the wireless nodes --> Segmentation fault.
+	iv. Removed Snoop from the wireless nodes alone --> Simulation Works but the packets are dropped from the wireless nodes directly. Then the congestion window reduces to zero.
+
+All the above simulations are backup up by NAM animations.
+
+HOW TO USE:
+Copy the files into the <ns instalation directory>/ns-2.35/tcl/ex/snoop folder.
+ns <filename.tcl>
